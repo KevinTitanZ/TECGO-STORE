@@ -97,12 +97,12 @@ button {
     transform: translate(0, -50%);
     width: 30px; 
     height: 30px;
-    background-image: url("svg/ojo-svgrepo-com.svg"); 
+    background-image: url("../svg/ojo-svgrepo-com.svg"); 
     background-size: 85%; 
     background-position: center; 
     background-repeat: no-repeat;
 }
 
 .toggle.showing {
-    background-image: url("svg/hide-svgrepo-com.svg");
+    background-image: url("../svg/hide-svgrepo-com.svg");
 }
