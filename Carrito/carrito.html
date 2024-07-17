@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Ofertas/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li class="logo"><img src="../img/logo TecgoStoreConLetras.png" alt="Logo TECGO Store" /></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#" class="text-center">Más Populares</a></li>
+                <li>
+                    <a href="#">Categorias</a>
+                    <ul class="submenu">
+                        <li><a href="#">Audio&Sonido</a></li>
+                        <li><a href="#">Monitores</a></li>
+                        <li><a href="#">Celulares</a></li>
+                        <li><a href="#">Servidores</a></li>
+                        <li><a href="#">Computadoras</a></li>
+                    </ul>
+                </li>
+                <li><a href="../Ofertas/ofertas.html">Ofertas</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="#">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Carrito</h1>
+        <div id="cart-items"></div>
+        <div class="subtotal">
+            SubTotal de los productos: <span id="cart-subtotal">US$ 0.00</span>
+        </div>
+        <button id="checkout-button">Proceder al pago</button>
+    </main>
+
+    <script src="../Ofertas/script.js"></script>
+</body>
+</html>

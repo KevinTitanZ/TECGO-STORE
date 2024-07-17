@@ -1,0 +1,36 @@
+/* Estilos para la página del carrito */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    max-width: 50px;
+    margin-right: 1em;
+}
+
+.cart-item span {
+    flex: 1;
+}
+
+.subtotal {
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+#checkout-button {
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+#checkout-button:hover {
+    background-color: #e6b800;
+}
