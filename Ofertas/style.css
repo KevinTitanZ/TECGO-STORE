@@ -27,17 +27,13 @@ a {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   height: 70px;
-
-  
 }
 
 .menu li {
   display: inline-block;
-  width: 90px;
   transition: all 0.3s ease-in-out;
-
 }
 
 .menu li:hover .submenu {
@@ -67,6 +63,7 @@ a {
   box-sizing: border-box;
   transition: height 0.3s ease-in-out;
 }
+
 .menu li .submenu a {
   color: #fff;
   opacity: 0;
@@ -106,6 +103,10 @@ a {
   visibility: hidden;
 }
 
+.logo img {
+  height: 50px; /* Ajusta según el tamaño que necesites */
+  margin-right: 20px; /* Espacio entre el logo y los demás elementos */
+}
 
 /* -----------------      */
 body {
@@ -120,6 +121,7 @@ header {
   background-color: #ffffff;
   padding: 1em 0;
 }
+
 .menu {
   list-style: none;
   display: flex;
@@ -127,26 +129,32 @@ header {
   padding: 0;
   margin: 0;
 }
+
 .menu a {
   color: white;
   text-decoration: none;
   padding: 0.5em 1em;
   display: block;
 }
+
 main {
   padding: 2em;
 }
+
 .offers, .discounts {
   margin-bottom: 2em;
 }
+
 h2 {
   color: #e60000;
   margin-bottom: 1em;
 }
+
 .offer-container, .discount-container {
   display: flex;
   gap: 1em;
 }
+
 .offer, .discount {
   background-color: white;
   padding: 1em;
@@ -154,10 +162,12 @@ h2 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+
 .offer img, .discount img {
   max-width: 100%;
   height: auto;
 }
+
 button {
   background-color: black;
   color: white;
@@ -167,9 +177,11 @@ button {
   border-radius: 5px;
   margin-top: 1em;
 }
+
 button:hover {
   background-color: #333;
 }
+
 .discount span {
   display: block;
   color: red;
