@@ -1,22 +1,10 @@
-const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.querySelector('.toggle-sidebar');
+    const sidebar = document.querySelector('nav.sidebar');
 
-toggle.addEventListener("click" , () => {
-    sidebar.classList.toggle("close");
-})
- searchBtn.addEventListener("click", () =>{
-    sidebar.classList.remove("close");
- })
- modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
+    // Alternar la visibilidad de la barra lateral
+    toggleButton.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+    });
+});
 
-    if(doby.classList.contains("dark")){
-        modeText.innnerText = "Ligth mode";
-    }else{
-        modeText.innnerText = "Dark mode";
-    }
- })

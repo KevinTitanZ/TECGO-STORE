@@ -8,158 +8,71 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
-    <title>Menú de la barra lateral del tablero</title> 
+    <title>Menú de la barra lateral del tablero</title>
 </head>
 <body>
-    <body>
-        
-    <nav class="sidebar close">
+    <nav class="top-nav">
+        <ul class="menu">
+            <li class="logo"><img src="../img/logo TecgoStoreConLetras.png" alt="Logo TECGO Store" /></li>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#" class="text-center">Más Populares</a></li>
+            <li>
+                <a href="#">Categorias</a>
+                <ul class="submenu">
+                    <li><a href="#">Audio & Sonido</a></li>
+                    <li><a href="#">Monitores</a></li>
+                    <li><a href="#">Celulares</a></li>
+                    <li><a href="#">Servidores</a></li>
+                    <li><a href="#">Computadoras</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Ofertas</a></li>
+            <li><a href="../Carrito/carrito.html">Carrito</a></li>
+            <li><a href="#">Perfil</a></li>
+        </ul>
+    </nav>
+
+    <nav class="sidebar">
         <header>
-           <i class='bx bx-chevron-right toggle'></i>
-       </header>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link"><a href="#"><i class='bx bx-volume-full'></i><span class="text nav-text">Audio & Sonido</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-plug'></i><span class="text nav-text">Accesorios & Cables</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-laptop'></i><span class="text nav-text">Computadoras</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-cog'></i><span class="text nav-text">Componentes</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-desktop'></i><span class="text nav-text">Monitores</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-mouse'></i><span class="text nav-text">Periféricos</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-shield'></i><span class="text nav-text">Protección Electrónica</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-network-chart'></i><span class="text nav-text">Redes</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-server'></i><span class="text nav-text">Servidores</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-package'></i><span class="text nav-text">Software</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-mobile'></i><span class="text nav-text">Celulares & Tablets</span></a></li>
+                    <li class="nav-link"><a href="#"><i class='bx bx-tv'></i><span class="text nav-text">TV & Proyectores</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-       <div class="menu-bar">
-          <div class="menu">
-
-
-           <ul class="menu-links">
-               <li class="nav-link">
-                   <a href="#">
-                       <i class='bx bx-volume-full'></i>
-                       <span class="bx bx-router">Audio & Sonido</span>
-                   </a>
-               </li>
-
-               <li class="nav-link">
-                   <a href="#">
-                        <i class='bx bx-plug'></i>
-                        <span class="text nav-text">Accesorioas & Cables</span>
-                   </a>
-                   </li>
-                   <li class="nav-link">
-                       <a href="#">
-                        <i class='bx bx-laptop'></i>
-                        <span class="text nav-text">Computadoras</span>
-                   </a>
-                   </li>
-                   <li class="nav-link">
-                       <a href="#">
-                        <i class='bx bx-cog'></i>
-                        <span class="text nav-text">Componentes</span>
-                   </a>
-                   </li>
-                   <li class="nav-link">
-                       <a href="#">
-                        <i class='bx bx-desktop'></i>
-                        <span class="text nav-text">Monitores</span>
-                   </a>
-                   </li>
-                   <li class="nav-link">
-                       <a href="#">
-                           <i class='bx bx-mouse'></i>
-                           <span class="text nav-text">Perifericos</span>
-                       </a>
-                   </li>
-                   <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-shield'></i>
-                        <span class="text nav-text">Protección Electrónica</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-network-chart'></i>
-                        <span class="text nav-text">Redes</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-server'></i>
-                        <span class="text nav-text">Servidores</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-package'></i>
-                        <span class="text nav-text">Software</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-mobile'></i>
-                        <span class="text nav-text">Celulares & Tablets</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-tv'></i>
-                        <span class="text nav-text">Tv & Proyectores</span>
-                    </a>
-                </li>
-               </ul>
-       </div>         
-
-               </div>
-           </li>
-       </div>
-   </div>
-</nav>
     <section class="home">
         <div class="text">Categorías</div>
         <div class="categories">
-            <div class="category">
-                <img src="../img/audio.webp" alt="Audio & Sonido">
-                <span>Audio & Sonido</span>
-            </div>
-            <div class="category">
-                <img src="../img/accesorios.webp" alt="Accesorias & Cables">
-                <span>Accesorias & Cables</span>
-            </div>
-            <div class="category">
-                <img src="../img/compus.webp" alt="Computadoras">
-                <span>Computadoras</span>
-            </div>
-            <div class="category">
-                <img src="../img/components.webp" alt="Componentes">
-                <span>Componentes</span>
-            </div>
-            <div class="category">
-                <img src="../img/monitores.webp" alt="Monitores">
-                <span>Monitores</span>
-            </div>
-            <div class="category">
-                <img src="../img/perifericos2.webp" alt="Perifericos">
-                <span>Perifericos</span>
-            </div>
-            <div class="category">
-                <img src="../img/protElectrica.webp" alt="Protección Electrónica">
-                <span>Protección Electrónica</span>
-            </div>
-            <div class="category">
-                <img src="../img/redes.webp" alt="Redes">
-                <span>Redes</span>
-            </div>
-            <div class="category">
-                <img src="../img/servidores.webp" alt="Servidores">
-                <span>Servidores</span>
-            </div>
-            <div class="category">
-                <img src="../img/software.webp" alt="Software">
-                <span>Software</span>
-            </div>
-            <div class="category">
-                <img src="../img/cel-y-tab-300x300.jpg" alt="Celulares & Tablets">
-                <span>Celulares & Tablets</span>
-            </div>
-            <div class="category">
-                <img src="../img/proyectores.webp" alt="Tv & Proyectores">
-                <span>Tv & Proyectores</span>
-            </div>
+            <div class="category"><img src="../img/audio.webp" alt="Audio & Sonido"><span>Audio & Sonido</span></div>
+            <div class="category"><img src="../img/accesorios.webp" alt="Accesorios & Cables"><span>Accesorios & Cables</span></div>
+            <div class="category"><img src="../img/compus.webp" alt="Computadoras"><span>Computadoras</span></div>
+            <div class="category"><img src="../img/components.webp" alt="Componentes"><span>Componentes</span></div>
+            <div class="category"><img src="../img/monitores.webp" alt="Monitores"><span>Monitores</span></div>
+            <div class="category"><img src="../img/perifericos2.webp" alt="Periféricos"><span>Periféricos</span></div>
+            <div class="category"><img src="../img/protElectrica.webp" alt="Protección Electrónica"><span>Protección Electrónica</span></div>
+            <div class="category"><img src="../img/redes.webp" alt="Redes"><span>Redes</span></div>
+            <div class="category"><img src="../img/servidores.webp" alt="Servidores"><span>Servidores</span></div>
+            <div class="category"><img src="../img/software.webp" alt="Software"><span>Software</span></div>
+            <div class="category"><img src="../img/cel-y-tab-300x300.jpg" alt="Celulares & Tablets"><span>Celulares & Tablets</span></div>
+            <div class="category"><img src="../img/proyectores.webp" alt="TV & Proyectores"><span>TV & Proyectores</span></div>
         </div>
     </section>
-<section class="home">
-    <div class="text"></div>
-</section>
     <script src="Script.js"></script>
 </body>
 </html>
