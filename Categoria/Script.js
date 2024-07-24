@@ -1,10 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.querySelector('.toggle-sidebar');
-    const sidebar = document.querySelector('nav.sidebar');
+const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav.sidebar'),
+      toggle = body.querySelector(".toggle");
 
-    // Alternar la visibilidad de la barra lateral
-    toggleButton.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-    });
+toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
 });
-
