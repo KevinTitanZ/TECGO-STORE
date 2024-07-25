@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil de Compras - Tecgo Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="profile.css" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li class="logo"><img src="../img/logo TecgoStoreConLetras.png" alt="Logo TECGO Store" /></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Más Populares</a></li>
+                <li>
+                    <a href="#">Categorias</a>
+                    <ul class="submenu">
+                        <li><a href="#">Audio & Sonido</a></li>
+                        <li><a href="#">Monitores</a></li>
+                        <li><a href="#">Celulares</a></li>
+                        <li><a href="#">Servidores</a></li>
+                        <li><a href="#">Computadoras</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="../Carrito/carrito.html">Carrito</a></li>
+                <li><a href="#">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-header">
+            <h1>Mi Cuenta</h1>
+            <a href="#" class="logout">
+                <i class='bx bx-log-out'></i> Cerrar Sesión
+            </a>
+        </section>
+
+        <section class="profile-content">
+            <div class="profile-left">
+                <div class="account-details">
+                    <h2>Detalles de la Cuenta</h2>
+                    <p><strong>Nombre:</strong> Juan Pérez</p>
+                    <p><strong>País:</strong> País</p>
+                </div>
+
+                <div class="address-view">
+                    <h2>Ver Direcciones</h2>
+                    <a href="#">Administrar Direcciones</a>
+                </div>
+            </div>
+
+            <div class="order-history">
+                <h2>Historial de Pedidos</h2>
+                <p class="no-orders">Aún no has realizado ningún pedido.</p>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-item">
+                    <i class='bx bx-cart'></i>
+                    <p>Envío gratis</p>
+                    <p>En pedidos desde $75</p>
+                </div>
+                <div class="footer-item">
+                    <i class='bx bx-arrow-back'></i>
+                    <p>Devolución gratis</p>
+                    <p>Devuelve el producto y te reembolsamos.</p>
+                </div>
+                <div class="footer-item">
+                    <i class='bx bx-lock'></i>
+                    <p>Pago Seguro</p>
+                    <p>Paga con tarjeta, transferencia o efectivo. Tú eliges.</p>
+                </div>
+                <div class="footer-item">
+                    <i class='bx bx-heart'></i>
+                    <p>Garantía y Soporte</p>
+                    <p>Productos con 12 meses de garantía y soporte.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

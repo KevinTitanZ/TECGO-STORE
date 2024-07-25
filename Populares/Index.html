@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Los mas populares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li class="logo"><img src="../img/logo TecgoStoreConLetras.png" alt="Logo TECGO Store" /></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#" class="text-center">Más Populares</a></li>
+                <li>
+                    <a href="#">Categorias</a>
+                    <ul class="submenu">
+                        <li><a href="#">Audio&Sonido</a></li>
+                        <li><a href="#">Monitores</a></li>
+                        <li><a href="#">Celulares</a></li>
+                        <li><a href="#">Servidores</a></li>
+                        <li><a href="#">Computadoras</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="../Carrito/carrito.html">Carrito</a></li>
+                <li><a href="#">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="offers">
+            <h2>Los mas populares</h2>
+            <div class="offer-container">
+                <div class="offer">
+                    <img src="../img/redes.webp" alt="Tablet" />
+                    <div class="buttons">
+                        <button class="details-button" data-name="Tablet" data-description="Una tablet de alta calidad" data-price="$200">Details</button>
+                        <button class="cart-button"><img src="../img/carrito.png" alt="Cart Icon" /></button>
+                    </div>
+                </div>
+                <div class="offer">
+                    <img src="../img/audio.webp" alt="Monitor 1" />
+                    <div class="buttons">
+                        <button class="details-button" data-name="Monitor 1" data-description="Un monitor Full HD" data-price="$150">Details</button>
+                        <button class="cart-button"><img src="../img/carrito.png" alt="Cart Icon" /></button>
+                    </div>
+                </div>
+                <div class="offer">
+                    <img src="../img/compus.webp" alt="Webcam" />
+                    <div class="buttons">
+                        <button class="details-button" data-name="Webcam" data-description="Una webcam HD" data-price="$50">Details</button>
+                        <button class="cart-button"><img src="../img/carrito.png" alt="Cart Icon" /></button>
+                    </div>
+                </div>
+                <div class="offer">
+                    <img src="../img/cel-y-tab-300x300.jpg" alt="Monitor 2" />
+                    <div class="buttons">
+                        <button class="details-button" data-name="Monitor 2" data-description="Monitor 4K UHD" data-price="$300">Details</button>
+                        <button class="cart-button"><img src="../img/carrito.png" alt="Cart Icon" /></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="product-details" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="product-name"></h2>
+            <p id="product-description"></p>
+            <p id="product-price"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

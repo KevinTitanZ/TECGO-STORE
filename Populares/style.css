@@ -1,0 +1,227 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  header {
+    background: #f8f8f8;
+    font-family: Roboto;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav {
+    width: 100%;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);  
+  }
+  
+  
+  .menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+  }
+  
+  .menu li {
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .menu li:hover .submenu {
+    height: 85px;
+  }
+  
+  .menu > li:hover > a {
+    color: #3e95ff;
+  }
+  
+  .menu > li:hover > a::before {
+    visibility: visible;
+    scale: 1 1;
+  }
+  
+  .submenu {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    background-color: #3e95ff;
+    height: 0;
+    line-height: 40px;
+    box-sizing: border-box;
+    transition: height 0.3s ease-in-out;
+  }
+  
+  .menu li .submenu a {
+    color: #fff;
+    opacity: 0;
+    font-size: 16px;
+    transition: opacity 0.25s;
+  }
+  
+  .menu > li:hover .submenu a {
+    opacity: 1;
+  }
+  
+  .menu > li .submenu a:hover {
+    background: rgb(0 0 0 / 20%);
+  }
+  
+  .menu > li a {
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 7px;
+    text-decoration: none;
+    position: relative;
+    height: 100%;
+  }
+  
+  .menu > li > a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 3px;
+    left: 0px;
+    background-color: #3e95ff;
+    transition: all 0.2s ease-in-out;
+    scale: 0 0;
+    visibility: hidden;
+  }
+  
+  .logo img {
+    height: 50px; /* Ajusta según el tamaño que necesites */
+    margin-right: 20px; /* Espacio entre el logo y los demás elementos */
+  }
+  
+/* style.css */
+/* style.css */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 1em 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.menu a {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #3e95ff;
+}
+
+.offer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.offer {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: calc(50% - 10px);
+    text-align: center;
+}
+
+.offer img, .discount img {
+    max-width: 100%;
+    height: auto;
+  }
+  .cart-button img {
+    width: 10%; /* Imágenes del carrito al 10% del tamaño del contenedor */
+    height: auto;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
+    border-top: 1px solid #eee;
+}
+
+.details-button, .cart-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.details-button:hover, .cart-button:hover {
+    transform: scale(1.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.close-button:hover {
+    color: #3e95ff;
+}
+
+@media (max-width: 768px) {
+    .offer {
+        width: calc(100% - 20px);
+    }
+}
