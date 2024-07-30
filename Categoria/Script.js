@@ -5,3 +5,8 @@ const body = document.querySelector('body'),
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
 });
+
+
+function goBack() {
+    window.history.back();
+}
