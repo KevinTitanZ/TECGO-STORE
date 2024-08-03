@@ -1,4 +1,11 @@
 /* Estilos para la página del carrito */
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+  }
 .cart-item {
     display: flex;
     align-items: center;
