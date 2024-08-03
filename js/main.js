@@ -21,3 +21,9 @@ function validateLoginForm() {
     // Si todo está bien, el formulario se enviará normalmente
     return true;
 }
+
+function togglePassword(toggleButton) {
+    const passwordInput = toggleButton.parentElement.querySelector('input[type="password"]');
+    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+    toggleButton.classList.toggle('showing');
+  }

@@ -105,4 +105,11 @@
     scale: 0 0;
     visibility: hidden;
   }
-  
+  .logo img {
+    height: 50px; /* Ajusta según el tamaño que necesites */
+    margin-right: 20px; /* Espacio entre el logo y los demás elementos */
+  }
+  .offer img, .discount img {
+    max-width: 100%;
+    height: auto;
+  }
