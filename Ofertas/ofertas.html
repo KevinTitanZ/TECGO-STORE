@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>OFERTAS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas</title>
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -23,60 +23,65 @@
         <section class="offers">
             <h2>Ofertas del día</h2>
             <div class="offer-container">
+                <!-- Offer Item -->
                 <div class="offer">
                     <img src="../img/LogoTECGO_STORE.png" alt="Tablet" />
                     <div class="buttons">
-                        <button class="details-button" data-name="Tablet" data-description="Una tablet de alta calidad" data-price="$200">Details</button>
-                        <button class="cart-button"><img src="../img/carrito.png" alt="Cart Icon" /></button>
+                        <button class="details-button" data-name="Tablet" data-description="Una tablet de alta calidad" data-price="$200">Detalles</button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
                     </div>
                 </div>
+                <!-- More Offer Items -->
                 <div class="offer">
                     <img src="../img/LogoTECGO_STORE.png" alt="Monitor 1" />
                     <div class="buttons">
-                        <button class="details-button" data-name="Monitor 1" data-description="Un monitor Full HD" data-price="$150">Details</button>
-                        <button class="cart-button"><img src="../img/carrito.png" alt="Cart Icon" /></button>
+                        <button class="details-button" data-name="Monitor 1" data-description="Un monitor Full HD" data-price="$150">Detalles</button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
                     </div>
                 </div>
                 <div class="offer">
                     <img src="../img/LogoTECGO_STORE.png" alt="Webcam" />
                     <div class="buttons">
-                        <button class="details-button" data-name="Webcam" data-description="Una webcam HD" data-price="$50">Details</button>
-                        <button class="cart-button"><img src="../img/carrito.png" alt="Cart Icon" /></button>
+                        <button class="details-button" data-name="Webcam" data-description="Una webcam HD" data-price="$50">Detalles</button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
                     </div>
                 </div>
                 <div class="offer">
                     <img src="../img/LogoTECGO_STORE.png" alt="Monitor 2" />
                     <div class="buttons">
-                        <button class="details-button" data-name="Monitor 2" data-description="Monitor 4K UHD" data-price="$300">Details</button>
-                        <button class="cart-button"><img src="../img/carrito.png" alt="Cart Icon" /></button>
+                        <button class="details-button" data-name="Monitor 2" data-description="Monitor 4K UHD" data-price="$300">Detalles</button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
                     </div>
                 </div>
             </div>
         </section>
+
         <section class="discounts">
             <h2>Descuentos</h2>
             <div class="discount-container">
+                <!-- Discount Item -->
                 <div class="discount">
                     <img src="../img/LogoTECGO_STORE.png" alt="Logo TECGO Store" />
                     <span>27% de descuento</span>
                     <div class="buttons">
-                        <button class="details-button" data-name="Producto con descuento" data-description="Descripción del producto con descuento" data-price="$100">Details</button>
-                        <button class="cart-button"><img src="../img/carrito.png" alt="Cart Icon" /></button>
+                        <button class="details-button" data-name="Producto con descuento" data-description="Descripción del producto con descuento" data-price="$100">Detalles</button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
                     </div>
                 </div>
+                <!-- More Discount Items -->
                 <div class="discount">
-                  <img src="../img/LogoTECGO_STORE.png" alt="Logo TECGO Store" />
-                  <span>27% de descuento</span>
-                  <div class="buttons">
-                      <button class="details-button" data-name="Producto con descuento" data-description="Descripción del producto con descuento" data-price="$100">Details</button>
-                      <button class="cart-button"><img src="../img/carrito.png" alt="Cart Icon" /></button>
-                  </div>
-              </div>
-                
+                    <img src="../img/LogoTECGO_STORE.png" alt="Logo TECGO Store" />
+                    <span>27% de descuento</span>
+                    <div class="buttons">
+                        <button class="details-button" data-name="Producto con descuento" data-description="Descripción del producto con descuento" data-price="$100">Detalles</button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Product Details Modal -->
     <div id="product-details" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
@@ -85,8 +90,18 @@
             <p id="product-price"></p>
         </div>
     </div>
- 
+
+    <!-- JavaScript Files -->
     <script src="script.js"></script>
     <script src="../js/NAV.js"></script>
+    <script>
+        // Load HTML for navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../Nav/nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-container').innerHTML = data;
+                });
+        });
+    </script>
 </body>
-</html>
