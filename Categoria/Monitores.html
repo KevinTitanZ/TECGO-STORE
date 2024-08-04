@@ -7,15 +7,37 @@
     <link rel="stylesheet" href="Style.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Nav/stylee.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../Nav/stylee.css">
     <title>Categorias</title>
 </head>
 <body>
-    <header>
-        <div include-html="../Nav/nav.html"></div>
-    </header>
-
+    <div include-html="../Nav/nav.html"></div>
+    <nav class="sidebar">
+        <header>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li><a href="#">Tipos de categoria</a></li>
+                    <li class="nav-link"><a href="../Categoria/Audio&Sonido.html"><i class='bx bx-volume-full'></i><span class="text nav-text">Audio & Sonido</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/AcceCab.html"><i class='bx bx-plug'></i><span class="text nav-text">Accesorios & Cables</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Computadoras.html"><i class='bx bx-laptop'></i><span class="text nav-text">Computadoras</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Componentes.html"><i class='bx bx-cog'></i><span class="text nav-text">Componentes</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Monitores.html"><i class='bx bx-desktop'></i><span class="text nav-text">Monitores</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Perifericos.html"><i class='bx bx-mouse'></i><span class="text nav-text">Periféricos</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/ProEle.html"><i class='bx bx-shield'></i><span class="text nav-text">Protección Electrónica</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Redes.html"><i class='bx bx-network-chart'></i><span class="text nav-text">Redes</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Servidores.html"><i class='bx bx-server'></i><span class="text nav-text">Servidores</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Software.html"><i class='bx bx-package'></i><span class="text nav-text">Software</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Celulares.html"><i class='bx bx-mobile'></i><span class="text nav-text">Celulares & Tablets</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Tv.html"><i class='bx bx-tv'></i><span class="text nav-text">TV & Proyectores</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <section class="home">
         <div class="text">Monitores</div>
         <div class="categories">
@@ -31,9 +53,10 @@
         </div>
     </section>
 
-    <button onclick="goBack()" class="back-button">Regresar</button>
+    <a href="../Categoria/Index.html"><button onclick="goBack()" class="back-button">Regresar</button></a>
 
     <script src="../Categoria/Script.js"></script>
+    <script src="../js/NAV.js"></script>
 </body>
 <script src="../js/NAV.js"></script>
 </html>

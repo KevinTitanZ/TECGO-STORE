@@ -1,12 +1,10 @@
-const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav.sidebar'),
-      toggle = body.querySelector(".toggle");
-
-toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const home = document.querySelector('.home');
+    
+    toggle.addEventListener('click', () => {
+        sidebar.classList.toggle('close');
+        home.classList.toggle('expanded');
+    });
 });
-
-
-function goBack() {
-    window.history.back();
-}
