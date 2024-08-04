@@ -8,6 +8,7 @@
         </head>
         <body>
             <div class="login-card">
+                <img src="../img/logo TecgoStoreConLetras.png" alt="Logo" class="logo">
                 <h2>Login</h2>
                 <h3>Entra tus credenciales</h3>
                 <form class="login-form" onsubmit="return validateCredentials()">
@@ -52,17 +53,17 @@
                     const password = document.getElementById('password').value;
         
                     if (username === 'kevin@example.com' && password === '593') {
-                        window.location.href = '../Nav/nav.html';
+                        window.location.href = '../Inicio/index.html';
                         return false; // Prevent form submission
                     } else  {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Credenciales incorrectas. Por favor, inténtalo de nuevo.',
-                });
-                return false; // Prevent form submission
-            }
-        }
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Credenciales incorrectas. Por favor, inténtalo de nuevo.',
+                        });
+                        return false; // Prevent form submission
+                    }
+                }
             </script>
         </body>
-        </html>
+    </html>
