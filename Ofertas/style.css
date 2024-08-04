@@ -1,20 +1,20 @@
-<<<<<<< HEAD
-
-
-
-
-
-
-
-.menu {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  padding: 0;
-  margin: 0;
+/* Estilos para la página de ofertas */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }
 
-=======
+.fade-in-up {
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Estilos generales */
 * {
   box-sizing: border-box;
 }
@@ -26,7 +26,6 @@ body {
   background-color: #f5f5f5;
 }
 
->>>>>>> 2c9ef0e5a4968961def0894c51f2864de1f9b035
 main {
   padding: 2em;
 }
@@ -51,11 +50,17 @@ h2 {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el espacio entre elementos */
 }
 
 .offer img, .discount img {
   max-width: 100%;
-  height: auto;
+  width: 250px; /* Ajusta el ancho deseado */
+  height: 150px; /* Ajusta la altura deseada */
+  object-fit: cover; /* Mantiene la proporción de la imagen */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
 }
 
 .buttons {
@@ -80,8 +85,14 @@ h2 {
 
 .cart-button img {
   width: 34px;
-  height: 34px;
+  height: auto;
 }
+.cart-button {
+  position: relative;
+  z-index: 10; /* Ajusta según sea necesario */
+}
+
+
 
 .discount span {
   display: block;
@@ -126,3 +137,5 @@ h2 {
   text-decoration: none;
   cursor: pointer;
 }
+
+

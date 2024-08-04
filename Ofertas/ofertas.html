@@ -8,100 +8,228 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="../Nav/style.css">
-=======
-    <!-- Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
->>>>>>> 2c9ef0e5a4968961def0894c51f2864de1f9b035
+    <link rel="stylesheet" href="../Nav/stylee.css">
 </head>
 <body>
- 
-        <div include-html="../Nav/nav.html"></div>
-
+    <div id="nav-container"></div>
 
     <main>
-        <section class="offers">
+        <section class="offers fade-in-up">
             <h2>Ofertas del día</h2>
             <div class="offer-container">
-                <!-- Offer Item -->
+                <!-- Offer Item 1 -->
                 <div class="offer">
-                    <img src="../img/LogoTECGO_STORE.png" alt="Tablet" />
+                    <img src="../img/tablet.jpg" alt="Tablet" />
                     <div class="buttons">
-                        <button class="details-button" data-name="Tablet" data-description="Una tablet de alta calidad" data-price="$200">Detalles</button>
+                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTablet" aria-expanded="false" aria-controls="collapseTablet">
+                            Detalles
+                        </button>
                         <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
                     </div>
-                </div>
-                <!-- More Offer Items -->
-                <div class="offer">
-                    <img src="../img/LogoTECGO_STORE.png" alt="Monitor 1" />
-                    <div class="buttons">
-                        <button class="details-button" data-name="Monitor 1" data-description="Un monitor Full HD" data-price="$150">Detalles</button>
-                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+                    <div id="collapseTablet" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>tablet de alta calidad</p>
+                            <p>Precio: $200</p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Offer Item 2 -->
                 <div class="offer">
-                    <img src="../img/LogoTECGO_STORE.png" alt="Webcam" />
+                    <img src="../img/monitor.jpg" alt="Monitor 1" />
                     <div class="buttons">
-                        <button class="details-button" data-name="Webcam" data-description="Una webcam HD" data-price="$50">Detalles</button>
+                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMonitor1" aria-expanded="false" aria-controls="collapseMonitor1">
+                            Detalles
+                        </button>
                         <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
                     </div>
-                </div>
-                <div class="offer">
-                    <img src="../img/LogoTECGO_STORE.png" alt="Monitor 2" />
-                    <div class="buttons">
-                        <button class="details-button" data-name="Monitor 2" data-description="Monitor 4K UHD" data-price="$300">Detalles</button>
-                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+                    <div id="collapseMonitor1" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Monitor Full HD</p>
+                            <p>Precio: $150</p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Offer Item 3 -->
+                <div class="offer">
+                    <img src="../img/webcam.png" alt="Webcam" />
+                    <div class="buttons">
+                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWebcam" aria-expanded="false" aria-controls="collapseWebcam">
+                            Detalles
+                        </button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+                    </div>
+                    <div id="collapseWebcam" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>webcam HD</p>
+                            <p>Precio: $50</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer Item 4 -->
+                <div class="offer">
+                    <img src="../img/monitor4k.jpg" alt="Monitor 2" />
+                    <div class="buttons">
+                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMonitor2" aria-expanded="false" aria-controls="collapseMonitor2">
+                            Detalles
+                        </button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+                    </div>
+                    <div id="collapseMonitor2" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Monitor 4K UHD</p>
+                            <p>Precio: $300</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Offer Item 5 de ofertas -->
+                <div class="offer">
+                    <img src="../img/celular.png" alt="Teléfono Inteligente" />
+                    <div class="buttons">
+                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTelefono" aria-expanded="false" aria-controls="collapseTelefono">
+                            Detalles
+                        </button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+                    </div>
+                    <div id="collapseTelefono" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Teléfono inteligente con pantalla AMOLED</p>
+                            <p>Precio: $500</p>
+                        </div>
+                    </div>
+                </div>
+                                <!-- Offer Item  6 de ofertas -->
+
+                <div class="offer">
+                    <img src="../img/laptop.png" alt="Laptop" />
+                    <div class="buttons">
+                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLaptop" aria-expanded="false" aria-controls="collapseLaptop">
+                            Detalles
+                        </button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+                    </div>
+                    <div id="collapseLaptop" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Una laptop potente con 16GB de RAM</p>
+                            <p>Precio: $800</p>
+                        </div>
+                    </div>
+                </div>
+                
+
             </div>
         </section>
 
-        <section class="discounts">
+
+         <!-- Seccion de descuentos -->
+        <section class="discounts fade-in-up">
             <h2>Descuentos</h2>
             <div class="discount-container">
-                <!-- Discount Item -->
                 <div class="discount">
-                    <img src="../img/LogoTECGO_STORE.png" alt="Logo TECGO Store" />
-                    <span>27% de descuento</span>
+                    <img src="../img/tecladomecanico.png" alt="Teclado" />
+                    <span>30% de descuento</span>
                     <div class="buttons">
-                        <button class="details-button" data-name="Producto con descuento" data-description="Descripción del producto con descuento" data-price="$100">Detalles</button>
+                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount1" aria-expanded="false" aria-controls="collapseDiscount1">
+                            Detalles
+                        </button>
                         <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
                     </div>
-                </div>
-                <!-- More Discount Items -->
-                <div class="discount">
-                    <img src="../img/LogoTECGO_STORE.png" alt="Logo TECGO Store" />
-                    <span>27% de descuento</span>
-                    <div class="buttons">
-                        <button class="details-button" data-name="Producto con descuento" data-description="Descripción del producto con descuento" data-price="$100">Detalles</button>
-                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+                    <div id="collapseDiscount1" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Teclado mecánico con retroiluminación RGB</p>
+                            <p>Precio original: $80</p>
+                            <p>Precio con descuento: $56</p>
+                        </div>
                     </div>
                 </div>
+        
+                <!-- Discount Item 2 -->
+                <div class="discount">
+                    <img src="../img/raton.jpg" alt="Ratón" />
+                    <span>25% de descuento</span>
+                    <div class="buttons">
+                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount2" aria-expanded="false" aria-controls="collapseDiscount2">
+                            Detalles
+                        </button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+                    </div>
+                    <div id="collapseDiscount2" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Ratón ergonómico inalámbrico con ajuste de DPI</p>
+                            <p>Precio original: $60</p>
+                            <p>Precio con descuento: $45</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Discount Item 3 -->
+                <div class="discount">
+                    <img src="../img/altavoces.jpg" alt="Altavoces" />
+                    <span>20% de descuento</span>
+                    <div class="buttons">
+                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount3" aria-expanded="false" aria-controls="collapseDiscount3">
+                            Detalles
+                        </button>
+                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+                    </div>
+                    <div id="collapseDiscount3" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Altavoces estéreo con sonido envolvente</p>
+                            <p>Precio original: $120</p>
+                            <p>Precio con descuento: $96</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Discount Item 4 -->
+<div class="discount">
+    <img src="../img/auriculares.jpg" alt="Auriculares" />
+    <span>15% de descuento</span>
+    <div class="buttons">
+        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount4" aria-expanded="false" aria-controls="collapseDiscount4">
+            Detalles
+        </button>
+        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+    </div>
+    <div id="collapseDiscount4" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            <p>Auriculares con cancelación de ruido y micrófono</p>
+            <p>Precio original: $90</p>
+            <p>Precio con descuento: $76.50</p>
+        </div>
+    </div>
+</div>
+
+<!-- Discount Item 5 -->
+<div class="discount">
+    <img src="../img/usb.jpg" alt="Pendrive" />
+    <span>10% de descuento</span>
+    <div class="buttons">
+        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount5" aria-expanded="false" aria-controls="collapseDiscount5">
+            Detalles
+        </button>
+        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
+    </div>
+    <div id="collapseDiscount5" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            <p>Pendrive de 64GB con alta velocidad de transferencia</p>
+            <p>Precio original: $25</p>
+            <p>Precio con descuento: $22.50</p>
+        </div>
+    </div>
+</div>
+
             </div>
         </section>
     </main>
 
-    <!-- Product Details Modal -->
-    <div id="product-details" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2 id="product-name"></h2>
-            <p id="product-description"></p>
-            <p id="product-price"></p>
-        </div>
-    </div>
-
     <!-- JavaScript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script src="../js/NAV.js"></script>
     <script>
@@ -115,3 +243,4 @@
         });
     </script>
 </body>
+</html>
