@@ -7,35 +7,17 @@
     <link rel="stylesheet" href="Style.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Nav/stylee.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../Nav/stylee.css">
     <title>Categorias</title>
 </head>
 <body>
-    <nav class="top-nav">
-        <ul class="menu">
-            <li class="logo"><img src="../img/logo TecgoStoreConLetras.png" alt="Logo TECGO Store" /></li>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="../Populares/Index.html" class="text-center">Más Populares</a></li>
-            <li>
-                <a href="#">Categorias</a>
-                <ul class="submenu">
-                    <li><a href="../Categoria/Audio&Sonido.html">Audio & Sonido</a></li>
-                    <li><a href="../Categoria/Monitores.html">Monitores</a></li>
-                    <li><a href="../Categoria/Celulares.html">Celulares</a></li>
-                    <li><a href="..//Categoria/Servidores.html">Servidores</a></li>
-                    <li><a href="../Categoria/Computadoras.html">Computadoras</a></li>
-
-                </ul>
-            </li>
-            <li><a href="../Ofertas/ofertas.html">Ofertas</a></li>
-            <li><a href="../Carrito/carrito.html">Carrito</a></li>
-            <li><a href="../Perfil/Index.html">Perfil</a></li>
-        </ul>
-    </nav>
+    <div include-html="../Nav/nav.html"></div>
     <nav class="sidebar">
-        <header>
+
             <i class='bx bx-chevron-right toggle'></i>
-        </header>
+   
         <div class="menu-bar">
             <div class="menu">
                 <ul class="menu-links">
@@ -72,8 +54,10 @@
         </div>
     </section>
 
-    <button onclick="goBack()" class="back-button">Regresar</button>
+    <a href="../Categoria/Index.html"><button onclick="goBack()" class="back-button">Regresar</button></a>
 
     <script src="../Categoria/Script.js"></script>
+    <script src="../js/NAV.js"></script>
 </body>
+<script src="../js/NAV.js"></script>S
 </html>
