@@ -1,185 +1,83 @@
-* {
-    box-sizing: border-box;
-  }
-  
-
-  
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
- 
-  
- 
-
-header {
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.profile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* General Profile Styling */
+.profile {
+    text-align: center;
+    margin: 30px auto;
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
     padding: 20px;
-    background-color: #ffffff;
-    border-bottom: 2px solid #3e95ff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    position: relative;
 }
 
-.profile-header h1 {
-    font-size: 28px;
+/* Profile Image Styling */
+.profile-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff;
+    display: inline-block;
+    position: relative;
+    border: 1px solid #2122217c;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 0 auto;
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tooltip Container Styling */
+.tooltip-container {
+    font-size: 18px;
     color: #333;
-}
-
-.logout {
-    color: #3e95ff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-.logout i {
-    font-size: 20px;
-    margin-right: 8px;
-}
-
-.logout:hover {
-    color: #1a73e8;
-}
-
-.profile-content {
-    display: flex;
-    padding: 30px;
-    max-width: 1200px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
     margin: 20px auto;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 160px; /* Ajusta según el tamaño de la imagen */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-.profile-left {
-    flex: 1;
-    margin-right: 20px;
+.tooltip-container.show-tooltip {
+    opacity: 1;
+    visibility: visible;
 }
 
-.account-details, .address-view {
-    margin-bottom: 30px;
-}
-
-.account-details h2, .address-view h2 {
-    border-bottom: 3px solid #3e95ff;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    font-size: 22px;
-    color: #333;
-}
-
-.address-view a {
-    color: #3e95ff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.address-view a:hover {
-    color: #1a73e8;
-}
-
-.order-history {
-    flex: 2;
-}
-
-.order-history h2 {
-    border-bottom: 3px solid #3e95ff;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    font-size: 22px;
-    color: #333;
-}
-
-.order-history ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.order-history li {
-    margin: 15px 0;
-}
-
-.no-orders {
-    font-size: 16px;
-    color: #888;
-    text-align: center;
-    margin-top: 30px;
-}
-
-.divider {
-    border-left: 2px solid #ddd;
-    height: 50px;
-    margin: 20px 0;
-}
-
-footer {
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-    border-top: 2px solid #ddd;
-}
-
-.footer-container {
+/* Icons Container Styling */
+.icons {
+    margin-top: 120px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-.footer-item {
-    text-align: center;
-    flex: 1;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #f5f5f5;
-    transition: background-color 0.3s, transform 0.3s;
-    border-right: 1px solid #ddd;
+/* Icon Styling */
+.icons .icon {
+    font-size: 36px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s, color 0.3s;
+    color: #527c04;
+    outline: none; /* Elimina el contorno del enfoque */
+    border: none; /* Asegura que no haya borde alrededor del ícono */
+    box-shadow: none; 
 }
-
-.footer-item:last-child {
-    border-right: none;
-}
-
-.footer-item:hover {
-    background-color: #e0e0e0;
-    transform: translateY(-5px);
-}
-
-.footer-item i {
-    font-size: 30px;
-    margin-bottom: 10px;
-    transition: transform 0.3s;
-}
-
-.footer-item:hover i {
-    transform: scale(1.2);
-}
-
-.footer-item p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #333;
-}
-/* profile.css */
-
-/* Animación adicional para los iconos */
-.footer-item i {
-    font-size: 30px;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease, color 0.3s ease;
-    color: #333;
-}
-
-.footer-item:hover i {
-    color: #3e95ff;
+.icons .icon:focus {
+    outline: none; /* Asegura que no haya contorno al hacer clic */
+    border: none; /* Asegura que no haya borde al hacer clic */
+    box-shadow: none; /* Asegura que no haya sombra al hacer clic */
 }
