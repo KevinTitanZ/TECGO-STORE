@@ -2,6 +2,18 @@
 .carousel-item img {
   object-fit: cover;
   height: 60vh;
+  width: auto; /* Mantener la relación de aspecto */
+  margin: 0 auto; /* Centrar horizontalmente */
+}
+.carousel-caption {
+  bottom: 20px; /* Ajustar la posición del texto */
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black; /* Cambia esto al color que prefieras */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 .product-card {
   border: 1px solid #ddd;
@@ -23,4 +35,8 @@
   background-color: #f8f9fa;
   padding: 1rem 0;
   text-align: center;
+}
+
+.fade-in {
+  display: none;
 }
