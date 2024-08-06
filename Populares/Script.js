@@ -30,4 +30,11 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.style.display = "none";
         }
     }
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('../Nav/nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-container').innerHTML = data;
+            });
+    });
 });

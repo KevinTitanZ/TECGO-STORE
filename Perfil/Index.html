@@ -5,30 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil de Compras - Tecgo Store</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="../img/LogoTECGO_STORE.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../Nav/stylee.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="profile.css" />
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <header>
         <div include-html="../Nav/nav.html"></div>
+        <div id="nav-placeholder"></div>
     </header>
+    <section class="profile-header">
+        <h1>Mi Cuenta</h1>
+    </section>
+        <div class="profile">
+            <div class="profile-img">
+                <img src="../img/Perfil.jpg" alt="Foto de perfil">
+            </div>
+            <div id="tooltip-container" class="tooltip-container">
+            </div>
+            <div class="icons">
+                <div class="icon" data-tooltip="Hola, mi nombre es Marjorie Boyd">
+                    <i class='bx bx-user'></i>
+                </div>
+                <div class="icon" data-tooltip="Mi correo electrónico es marjorie.boyd@ejemplo.com">
+                    <i class='bx bxl-gmail'></i>
+                </div>
+                <div class="icon" data-tooltip="Mi cumpleaños es 5/5/1963">
+                    <i class='bx bx-calendar'></i>
+                </div>
+                <div class="icon" data-tooltip="Mi dirección es 3115 W. Campbell Ave.">
+                    <i class='bx bx-map'></i>
+                </div>
+                <div class="icon" data-tooltip="Mi número de teléfono es (380) 498-9724">
+                    <i class='bx bx-phone'></i>
+                </div>
+                <div class="icon" data-tooltip="Mi contraseña es residente">
+                    <i class='bx bx-lock'></i>
+                </div>
+            </div>
+        </div>
 
     <main>
-        <section class="profile-header">
-            <h1>Mi Cuenta</h1>
-            <a href="#" class="logout">
-                <i class='bx bx-log-out'></i> Cerrar Sesión
-            </a>
-        </section>
 
         <section class="profile-content">
             <div class="profile-left">
@@ -62,7 +85,7 @@
                 <div class="footer-item">
                     <i class='bx bx-arrow-back'></i>
                     <p>Devolución gratis</p>
-                    <p>Devuelve el producto y te reembolsamos.</p>
+                    <p>Devuelve el producto y te reembolsamos. Ver más.</p>
                 </div>
                 <div class="footer-item">
                     <i class='bx bx-lock'></i>
@@ -78,7 +101,8 @@
         </footer>
     </main>
 
-    <script src="script.js"></script>
-    <script src="../js/NAV.js"></script>S
+    <script src="../Perfil/script.js"></script>
+    <script src="../js/NAV.js"></script>
+   
 </body>
 </html>
