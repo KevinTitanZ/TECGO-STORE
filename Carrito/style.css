@@ -1,59 +1,64 @@
 /* Estilos para la página del carrito */
+/* Animación de entrada desde abajo */
 @keyframes fadeInUp {
     from {
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 0; /* Comienza completamente transparente */
+        transform: translateY(20px); /* Comienza 20px hacia abajo */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Termina completamente opaco */
+        transform: translateY(0); /* Termina en su posición original */
     }
 }
 
 .fade-in-up {
-    animation: fadeInUp 1s ease-out;
+    animation: fadeInUp 1s ease-out; /* Aplica la animación fadeInUp con una duración de 1 segundo y un efecto de salida suave */
 }
 
-/* Estilos para el carrito */
+/* Estilos para el contenedor principal del carrito */
 .contenedor-carrito {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 1em;
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera alrededor del contenedor */
+    padding: 1em; /* Espacio interior de 1em */
 }
 
+/* Estilos para cada elemento del carrito */
 .item-carrito {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1em;
-    border-bottom: 1px solid #ddd;
+    display: flex; /* Utiliza flexbox para alinear elementos */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+    padding: 1em; /* Espacio interior de 1em */
+    border-bottom: 1px solid #ddd; /* Línea divisoria debajo de cada elemento */
 }
 
 .item-carrito img {
-    max-width: 50px;
-    margin-right: 1em;
+    max-width: 50px; /* Ancho máximo de la imagen */
+    margin-right: 1em; /* Espacio a la derecha de la imagen */
 }
 
 .item-carrito span {
-    flex: 1;
+    flex: 1; /* Ocupa el espacio restante disponible */
 }
 
+/* Estilos para el subtotal */
 .subtotal {
-    font-weight: bold;
-    margin-top: 1em;
+    font-weight: bold; /* Texto en negrita */
+    margin-top: 1em; /* Margen superior de 1em */
 }
 
+/* Estilos para el botón de pago */
 #boton-pago {
-    background-color: #ffcc00;
-    color: black;
-    border: none;
-    padding: 0.5em 1em;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 1em;
+    background-color: #ffcc00; /* Fondo amarillo */
+    color: black; /* Texto en negro */
+    border: none; /* Sin borde */
+    padding: 0.5em 1em; /* Espacio interior de 0.5em arriba/abajo y 1em izquierda/derecha */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón */
+    border-radius: 5px; /* Esquinas redondeadas */
+    margin-top: 1em; /* Margen superior de 1em */
 }
 
+/* Estilos para el botón de pago al pasar el cursor por encima */
 #boton-pago:hover {
-    background-color: #e6b800;
+    background-color: #e6b800; /* Cambia el fondo a un tono más oscuro de amarillo */
 }
