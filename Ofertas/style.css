@@ -1,141 +1,108 @@
-/* Estilos para la página de ofertas */
+/* Animación para entrada suave de elementos */
 @keyframes fadeInUp {
   from {
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 0; /* Inicialmente invisible */
+      transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1; /* Totalmente visible */
+      transform: translateY(0); /* Posición original */
   }
 }
 
+/* Aplicación de la animación fadeInUp */
 .fade-in-up {
   animation: fadeInUp 1s ease-out;
 }
 
-/* Estilos generales */
+/* Estilos generales para el documento */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del elemento */
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif; /* Fuente tipográfica */
+  margin: 0; /* Sin márgenes */
+  padding: 0; /* Sin relleno */
+  background-color: #f5f5f5; /* Color de fondo */
 }
 
 main {
-  padding: 2em;
+  padding: 2em; /* Espaciado interno */
 }
 
-.offers, .discounts {
-  margin-bottom: 2em;
+.ofertas, .descuentos {
+  margin-bottom: 2em; /* Espacio debajo de las secciones */
 }
 
+/* Estilo para los encabezados */
 h2 {
-  color: #e60000;
-  margin-bottom: 1em;
+  color: #e60000; /* Color del texto */
+  margin-bottom: 1em; /* Espacio debajo del encabezado */
 }
 
-.offer-container, .discount-container {
-  display: flex;
-  gap: 1em;
+/* Contenedor flexible para ofertas y descuentos */
+.contenedor-ofertas, .contenedor-descuentos {
+  display: flex; /* Disposición en fila */
+  gap: 1em; /* Espacio entre elementos */
 }
 
-.offer, .discount {
-  background-color: white;
-  padding: 1em;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Distribuye el espacio entre elementos */
+/* Estilo para los elementos de oferta y descuento */
+.oferta, .descuento {
+  background-color: white; /* Fondo blanco */
+  padding: 1em; /* Relleno interno */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  text-align: center; /* Alineación centrada del texto */
+  display: flex; /* Flexbox para disposición interna */
+  flex-direction: column; /* Disposición vertical de los elementos internos */
+  justify-content: space-between; /* Espacio distribuido entre los elementos internos */
 }
 
-.offer img, .discount img {
-  max-width: 100%;
-  width: 250px; /* Ajusta el ancho deseado */
-  height: 150px; /* Ajusta la altura deseada */
-  object-fit: cover; /* Mantiene la proporción de la imagen */
-  margin: 0 auto; /* Centra la imagen horizontalmente */
+/* Estilo para las imágenes dentro de oferta y descuento */
+.oferta img, .descuento img {
+  max-width: 100%; /* Máximo ancho ajustado al contenedor */
+  width: 250px; /* Ancho fijo */
+  height: 150px; /* Altura fija */
+  object-fit: cover; /* Ajuste de la imagen para mantener la proporción */
+  margin: 0 auto; /* Centrado horizontal */
 }
 
-.buttons {
-  display: flex;
-  gap: 0.5em;
-  justify-content: center;
-  margin-top: 1em;
+/* Estilo para los botones */
+.botones {
+  display: flex; /* Disposición en fila */
+  gap: 0.5em; /* Espacio entre botones */
+  justify-content: center; /* Centrado horizontal */
+  margin-top: 1em; /* Espacio superior */
 }
 
-.details-button, .cart-button {
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 0.5em 1em;
-  cursor: pointer;
-  border-radius: 5px;
+.boton-detalles, .boton-carrito {
+  background-color: black; /* Fondo negro */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 0.5em 1em; /* Relleno interno */
+  cursor: pointer; /* Cursor de mano */
+  border-radius: 5px; /* Bordes redondeados */
 }
 
-.details-button:hover, .cart-button:hover {
-  background-color: #333;
+.boton-detalles:hover, .boton-carrito:hover {
+  background-color: #333; /* Color de fondo en hover */
 }
 
-.cart-button img {
-  width: 34px;
-  height: auto;
-}
-.cart-button {
-  position: relative;
-  z-index: 10; /* Ajusta según sea necesario */
+.boton-carrito img {
+  width: 34px; /* Ancho de la imagen en el botón de carrito */
+  height: auto; /* Altura ajustada automáticamente */
 }
 
-
-
-.discount span {
-  display: block;
-  color: red;
-  font-weight: bold;
-  margin: 0.5em 0;
+.boton-carrito {
+  position: relative; /* Posición relativa para ajuste de z-index */
+  z-index: 10; /* Asegura que esté por encima de otros elementos */
 }
 
-/* Modal Styles */
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4); 
-  padding-top: 60px;
+/* Estilo para las etiquetas de descuento */
+.descuento span {
+  display: block; /* Disposición en bloque */
+  margin: 1em 0; /* Espacio superior e inferior */
+  color: red; /* Color del texto del descuento */
+  font-weight: bold; /* Negrita */
 }
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close-button:hover,
-.close-button:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
