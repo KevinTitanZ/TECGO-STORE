@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: ../Login/index.php");
+    exit();
+}
+?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,22 +36,20 @@
       <div class="carousel-item active">
         <img src="../img/tabet.png" class="d-block mx-auto" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some quick example text to build on the first slide and make up the bulk of the content.</p>
+        
         </div>
       </div>
       <div class="carousel-item">
         <img src="../img/laptop.png" class="d-block mx-auto" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some quick example text to build on the second slide and make up the bulk of the content.</p>
+         
         </div>
       </div>
       <div class="carousel-item">
         <img src="../img/celular.png" class="d-block mx-auto" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some quick example text to build on the third slide and make up the bulk of the content.</p>
+     
+       
         </div>
       </div>
     </div>

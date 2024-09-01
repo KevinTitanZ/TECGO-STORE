@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="icon" type="image/png" href="../img/LogoTECGO_STORE.png">
 </head>
 <body>
 
@@ -15,17 +16,17 @@
   <div class="card">
     <div class="card-body">
       <h2 class="card-title">Regístrate</h2>
-      <form class="form" id="registrationForm" onsubmit="return validateForm()">
+      <form action="../guardar_usuario.php" method="post">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
         <div class="form-group">
-          <h6 class="text-left">Name</h6>
-          <input type="text" class="form-control" placeholder="Name" id="name" required>
-        </div>
-        <div class="form-group">
-          <h6 class="text-left">Email</h6>
-          <input type="email" class="form-control" placeholder="Email" id="email" required>
-        </div>
-        <div class="form-group">
-          <h6 class="text-left">Phone</h6>
+          <label for="number" class="form-label">Phone</label>
             <input type="tel" class="form-control" placeholder="Phone Number" 
                    id="phoneNumber" name="phoneNumber"
                    pattern="\d{10}" maxlength="10" minlength="10" required>
@@ -33,18 +34,18 @@
                 Por favor, ingrese un número de teléfono válido de 10 dígitos.
             </div>
         </div>
-        <div class="form-group">
-          <h6 class="text-left">Password</h6>
-          <input type="password" class="form-control" id="password" placeholder="Password" required>
-        </div>
+        <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
         <div class="form-group">
           <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-block btn-sm">SIGN UP</button>
+        <button type="submit" class="btn btn-primary btn-block btn-sm">Registrar</button>
       </form>
     </div>
     <div class="card-footer">
-      Existing users, sign in <a href="../Login/index.html">here</a>
+       ¿Ya tienes cuenta? <a href="../Login/index.php">here</a>
     </div>
   </div>
 </div>

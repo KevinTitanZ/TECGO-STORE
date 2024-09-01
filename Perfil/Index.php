@@ -1,63 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perfil de Compras - Tecgo Store</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="../img/LogoTECGO_STORE.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario - Tecgo Store</title>
+    <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../Nav/stylee.css">
+    <link rel="stylesheet" href="Style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="profile.css" />
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
         <div include-html="../Nav/nav.html"></div>
-        <div id="nav-placeholder"></div>
+        <?php
+        session_start();
+        require '../db.php';
+
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: ../Login/index.php');
+            exit();
+        }
+
+        $user_id = $_SESSION['user_id'];
+
+        try {
+            $sql = "SELECT * FROM usuarios WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['id' => $user_id]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$user) {
+                echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Usuario no encontrado.'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../Login/index.php';
+                        }
+                    });
+                </script>";
+                exit();
+            }
+        } catch (PDOException $e) {
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al obtener los datos del usuario: " . $e->getMessage() . "'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../Login/index.php';
+                    }
+                });
+            </script>";
+            exit();
+        }
+        ?>
     </header>
-    <section class="profile-header">
-        <h1>Mi Cuenta</h1>
-    </section>
+
+    <main>
+        <section class="profile-header">
+            <h1>Mi Cuenta</h1>
+        </section>
         <div class="profile">
             <div class="profile-img">
                 <img src="../img/Perfil.jpg" alt="Foto de perfil">
             </div>
-            <div id="tooltip-container" class="tooltip-container">
-            </div>
             <div class="icons">
-                <div class="icon" data-tooltip="Hola, mi nombre es Kevin Boyd">
+                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['nombre']); ?>">
                     <i class='bx bx-user'></i>
                 </div>
-                <div class="icon" data-tooltip="Mi correo electrónico es kevin.boyd@ejemplo.com">
+                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['email']); ?>">
                     <i class='bx bxl-gmail'></i>
                 </div>
-                <div class="icon" data-tooltip="Mi cumpleaños es 5/5/1963">
+                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['birthday']); ?>">
                     <i class='bx bx-calendar'></i>
                 </div>
-                <div class="icon" data-tooltip="Mi dirección es 3115 W. Campbell Ave.">
+                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['address']); ?>">
                     <i class='bx bx-map'></i>
                 </div>
-                <div class="icon" data-tooltip="Mi número de teléfono es (380) 498-9724">
+                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['phone']); ?>">
                     <i class='bx bx-phone'></i>
                 </div>
-                <div class="icon" data-tooltip="Mi contraseña es residente">
+                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['password']); ?>">
                     <i class='bx bx-lock'></i>
                 </div>
             </div>
         </div>
 
-    <main>
-
         <section class="profile-content">
             <div class="profile-left">
                 <div class="account-details">
                     <h2>Detalles de la Cuenta</h2>
-                    <p><strong>Nombre:</strong> Kevin Boyd</p>
+                    <p><strong>Nombre:</strong> <?php echo htmlspecialchars($user['nombre']); ?></p>
                     <p><strong>País:</strong> País</p>
                 </div>
 
@@ -103,6 +143,5 @@
 
     <script src="../Perfil/script.js"></script>
     <script src="../js/NAV.js"></script>
-   
 </body>
 </html>
