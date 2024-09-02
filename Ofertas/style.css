@@ -1,8 +1,8 @@
 /* Animación para entrada suave de elementos */
-@keyframes fadeInUp {
+@keyframes fadeInUp {  /* Los keyframes definen los estados de la animación en diferentes puntos del tiempo. */
   from {
       opacity: 0; /* Inicialmente invisible */
-      transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+      transform: translateX(20px); /* Inicialmente desplazado hacia abajo */
   }
   to {
       opacity: 1; /* Totalmente visible */
