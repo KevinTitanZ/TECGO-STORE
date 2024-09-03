@@ -1,3 +1,50 @@
+<?php
+session_start();
+require '../db.php'; // Asegúrate de que db.php tiene la conexión a la base de datos
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../Login/index.php');
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+
+try {
+    $sql = "SELECT * FROM usuarios WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $user_id]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Usuario no encontrado.'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '../Login/index.php';
+                }
+            });
+        </script>";
+        exit();
+    }
+} catch (PDOException $e) {
+    echo "<script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Error al obtener los datos del usuario: " . htmlspecialchars($e->getMessage()) . "'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '../Login/index.php';
+            }
+        });
+    </script>";
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,53 +61,7 @@
 </head>
 <body>
     <header>
-        <div include-html="../Nav/nav.html"></div>
-        <?php
-        session_start();
-        require '../db.php';
-
-        if (!isset($_SESSION['user_id'])) {
-            header('Location: ../Login/index.php');
-            exit();
-        }
-
-        $user_id = $_SESSION['user_id'];
-
-        try {
-            $sql = "SELECT * FROM usuarios WHERE id = :id";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute(['id' => $user_id]);
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if (!$user) {
-                echo "<script>
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Usuario no encontrado.'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../Login/index.php';
-                        }
-                    });
-                </script>";
-                exit();
-            }
-        } catch (PDOException $e) {
-            echo "<script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Error al obtener los datos del usuario: " . $e->getMessage() . "'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = '../Login/index.php';
-                    }
-                });
-            </script>";
-            exit();
-        }
-        ?>
+        <div include-html="../Nav/nav.php"></div>
     </header>
 
     <main>
@@ -72,33 +73,33 @@
                 <img src="../img/Perfil.jpg" alt="Foto de perfil">
             </div>
             <div class="icons">
-                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['nombre']); ?>">
-                    <i class='bx bx-user'></i>
-                </div>
-                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['email']); ?>">
-                    <i class='bx bxl-gmail'></i>
-                </div>
-                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['birthday']); ?>">
-                    <i class='bx bx-calendar'></i>
-                </div>
-                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['address']); ?>">
-                    <i class='bx bx-map'></i>
-                </div>
-                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['phone']); ?>">
-                    <i class='bx bx-phone'></i>
-                </div>
-                <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['password']); ?>">
-                    <i class='bx bx-lock'></i>
-                </div>
-            </div>
-        </div>
+    <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['nombre']); ?>">
+        <i class='bx bx-user'></i>
+    </div>
+    <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['email']); ?>">
+        <i class='bx bxl-gmail'></i>
+    </div>
+    <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['birthday']); ?>">
+        <i class='bx bx-calendar'></i>
+    </div>
+    <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['address']); ?>">
+        <i class='bx bx-map'></i>
+    </div>
+    <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['phone']); ?>">
+        <i class='bx bx-phone'></i>
+    </div>
+</div>
+</div>
 
         <section class="profile-content">
             <div class="profile-left">
                 <div class="account-details">
                     <h2>Detalles de la Cuenta</h2>
                     <p><strong>Nombre:</strong> <?php echo htmlspecialchars($user['nombre']); ?></p>
-                    <p><strong>País:</strong> País</p>
+                    <p><strong>Correo Electrónico:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+                    <p><strong>Fecha de Nacimiento:</strong> <?php echo htmlspecialchars($user['birthday']); ?></p>
+                    <p><strong>Dirección:</strong> <?php echo htmlspecialchars($user['address']); ?></p>
+                    <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($user['phone']); ?></p>
                 </div>
 
                 <div class="address-view">

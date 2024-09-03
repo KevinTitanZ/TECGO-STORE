@@ -1,7 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: ../Login/index.php");
+var_dump($_SESSION); // Esto mostrará el contenido de la sesión
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../Login/login.php");
     exit();
 }
 ?>
@@ -25,7 +26,7 @@ if (!isset($_SESSION['usuario_id'])) {
   <div id="weather" class="hidden toggle-weather">
     <div id="weather-data">Datos...</div>
 </div>
-<header> <div include-html="../Nav/nav.html"></div></header>
+<header> <div include-html="../Nav/nav.php"></div></header>
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -35,21 +36,17 @@ if (!isset($_SESSION['usuario_id'])) {
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="../img/tabet.png" class="d-block mx-auto" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-        
+        <div class="carousel-caption d-none d-md-block">    
         </div>
       </div>
       <div class="carousel-item">
         <img src="../img/laptop.png" class="d-block mx-auto" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-         
+        <div class="carousel-caption d-none d-md-block">       
         </div>
       </div>
       <div class="carousel-item">
         <img src="../img/celular.png" class="d-block mx-auto" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-     
-       
+        <div class="carousel-caption d-none d-md-block">    
         </div>
       </div>
     </div>

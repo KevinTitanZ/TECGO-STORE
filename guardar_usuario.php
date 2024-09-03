@@ -34,7 +34,7 @@
                 text: '¡Algo Salio Mal!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../Login/index.php';
+                    window.location.href = '../Login/login.php';
                 }
             });
         </script>";
