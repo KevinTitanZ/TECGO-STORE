@@ -15,7 +15,7 @@ $host = 'localhost';
 $port = '5432'; // Cambia esto al puerto que estés usando, si es diferente
 $dbname = 'tienda';
 $user = 'postgres';
-$password = '21122002';
+$password = 'jhon12345678';
 
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);

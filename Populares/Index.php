@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,7 +19,7 @@
 </head>
 <body>
     <header>
-        <div include-html="../Nav/nav.html"></div>
+        <div include-html="../Nav/nav.php"></div>
     </header>
     <div id="nav-container"></div>
 
