@@ -12,10 +12,10 @@ error_reporting(E_ALL);
 
 
 $host = 'localhost';
-$port = '5433'; // Cambia esto al puerto que estés usando, si es diferente
-$dbname = 'APLICACIONES_WEB';
+$port = '5432'; // Cambia esto al puerto que estés usando, si es diferente
+$dbname = 'tienda';
 $user = 'postgres';
-$password = 'kevin';
+$password = '21122002';
 
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);

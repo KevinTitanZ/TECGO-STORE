@@ -19,19 +19,19 @@
         <ul class="menu">
             <li class="logo"><img src="../img/logo TecgoStoreConLetras.png" alt="Logo TECGO Store" /></li>
             <li><a href="../Inicio/index.php">Inicio</a></li>
-            <li><a href="../Populares/Index.html">Más Populares</a></li>
+            <li><a href="../Populares/Index.php">Más Populares</a></li>
             <li>
-                <a href="../Categoria/Index.html">Categorias</a>
+                <a href="../Categoria/Index.php">Categorias</a>
                 <ul class="submenu">
-                    <li><a href="../Categoria/Audio&Sonido.html">Audio&Sonido</a></li>
-                    <li><a href="../Categoria/Monitores.html">Monitores</a></li>
-                    <li><a href="../Categoria/Celulares.html">Celulares</a></li>
-                    <li><a href="../Categoria/Servidores.html">Servidores</a></li>
-                    <li><a href="../Categoria/Computadoras.html">Computadoras</a></li>
+                    <li><a href="../Categoria/Audio&Sonido.php">Audio&Sonido</a></li>
+                    <li><a href="../Categoria/Monitores.php">Monitores</a></li>
+                    <li><a href="../Categoria/Celulares.php">Celulares</a></li>
+                    <li><a href="../Categoria/Servidores.php">Servidores</a></li>
+                    <li><a href="../Categoria/Computadoras.php">Computadoras</a></li>
                 </ul>
             </li>
-            <li><a href="../Ofertas/ofertas.html">Ofertas</a></li>
-            <li><a href="../Carrito/carrito.html">Carrito</a></li>
+            <li><a href="../Ofertas/ofertas.php">Ofertas</a></li>
+            <li><a href="../Carrito/carrito.php">Carrito</a></li>
             <li><a href="../Perfil/Index.php">Perfil</a></li>
             <!-- Actualiza el enlace para cerrar sesión -->
             <li><a href="../logout.php" class="logout-button">Cerrar Sesión</a></li>

@@ -5,23 +5,17 @@ body {
   padding: 0;
   background-color: #f4f4f4;
 }
-/* General Styles */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
 
 /* Sidebar Styles */
 .sidebar {
   width: 250px;
-  height: 500px; /* Mantiene la altura completa de la ventana */
+  height: 500px;
+  
   background-color: #2c3e50;
-  position: fixed; /* Mantiene la barra en la parte superior */
+  position: fixed;
   transition: width 0.3s ease, background-color 0.3s ease;
-  overflow-y: auto; /* Permite el desplazamiento vertical */
-  overflow-x: hidden; /* Oculta el desplazamiento horizontal */
+  overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: 10px 0 10px rgba(0, 0, 0, 0.13);
   z-index: 1000;
 }
@@ -186,4 +180,31 @@ body {
 
 .back-button:hover {
   background-color: #16a085; /* Color de fondo al pasar el mouse */
+}
+.add-to-cart {
+  display: inline-flex;
+  align-items: center;
+  background-color: #007bff; /* Color de fondo azul */
+  color: #fff; /* Color del texto blanco */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 10px;
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3; /* Color de fondo más oscuro en hover */
+  transform: scale(1.05); /* Agranda el botón ligeramente en hover */
+}
+
+.add-to-cart i {
+  margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.add-to-cart:focus {
+  outline: none; /* Elimina el borde de enfoque */
 }
