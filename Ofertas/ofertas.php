@@ -1,6 +1,5 @@
 <?php
 include('../conexion.php');
-
 $conn = getConnection();
 if (!$conn) {
     die("Error de conexión a la base de datos");
