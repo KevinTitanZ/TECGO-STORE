@@ -1,6 +1,5 @@
 <?php
 session_start();
-var_dump($_SESSION); // Esto mostrará el contenido de la sesión
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../Login/login.php");
     exit();

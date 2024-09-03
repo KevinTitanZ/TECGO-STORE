@@ -1,42 +1,46 @@
 <?php
-include('../conexion.php');
-$conn = getConnection();
-if (!$conn) {
+include('../db.php'); // Cambiamos la conexión a db.php
+
+if (!$pdo) {
     die("Error de conexión a la base de datos");
 }
 
 // Consultar todos los productos
 $query = "SELECT * FROM productos";
-$result = pg_query($conn, $query);
-
-if (!$result) {
-    die("Error en la consulta: " . pg_last_error($conn));
+try {
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Error en la consulta: " . $e->getMessage());
 }
 
 // Manejar la solicitud POST para agregar al carrito
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
     if ($data) {
-        $producto_id = pg_escape_string($data['id']);
+        $producto_id = $data['id'];
         $cantidad = 1; // Puedes cambiar la cantidad si necesitas permitir cantidades diferentes
 
-        // Verificar si el producto ya está en el carrito
-        $checkQuery = "SELECT * FROM carrito WHERE producto_id = $1";
-        $checkResult = pg_query_params($conn, $checkQuery, array($producto_id));
+        try {
+            // Verificar si el producto ya está en el carrito
+            $checkQuery = "SELECT * FROM carrito WHERE producto_id = :producto_id";
+            $checkStmt = $pdo->prepare($checkQuery);
+            $checkStmt->execute(['producto_id' => $producto_id]);
 
-        if (pg_num_rows($checkResult) > 0) {
-            // Producto ya está en el carrito
-            echo json_encode(['success' => false, 'message' => 'El producto ya está en el carrito.']);
-        } else {
-            // Insertar el producto en la tabla carrito
-            $query = "INSERT INTO carrito (producto_id, cantidad) VALUES ($1, $2)";
-            $result = pg_query_params($conn, $query, array($producto_id, $cantidad));
-
-            if ($result) {
-                echo json_encode(['success' => true, 'message' => 'Producto añadido al carrito.']);
+            if ($checkStmt->rowCount() > 0) {
+                // Producto ya está en el carrito
+                echo json_encode(['success' => false, 'message' => 'El producto ya está en el carrito.']);
             } else {
-                echo json_encode(['success' => false, 'error' => pg_last_error($conn)]);
+                // Insertar el producto en la tabla carrito
+                $insertQuery = "INSERT INTO carrito (producto_id, cantidad) VALUES (:producto_id, :cantidad)";
+                $insertStmt = $pdo->prepare($insertQuery);
+                $insertStmt->execute(['producto_id' => $producto_id, 'cantidad' => $cantidad]);
+
+                echo json_encode(['success' => true, 'message' => 'Producto añadido al carrito.']);
             }
+        } catch (PDOException $e) {
+            echo json_encode(['success' => false, 'error' => $e->getMessage()]);
         }
         exit();
     }
@@ -76,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <section class="ofertas fade-in-up">
             <h2>Ofertas del día</h2>
             <div class="contenedor-ofertas">
-                <?php while ($row = pg_fetch_assoc($result)) { ?>
+                <?php foreach ($productos as $row) { ?>
                     <div class="oferta">
                         <img src="../img/<?php echo htmlspecialchars($row['imagen']); ?>" alt="<?php echo htmlspecialchars($row['nombre']); ?>" style="max-width: 100%; height: auto;" />
                         <div class="botones">
@@ -108,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Cargar el menú de navegación
-            fetch('../Nav/nav.html')
+            fetch('../Nav/nav.php')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('nav-container').innerHTML = data;
@@ -153,5 +157,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </html>
 
 <?php
-pg_close($conn);
+$pdo = null; // Cerrar la conexión
 ?>
