@@ -1,98 +1,147 @@
+<?php
+include('../db.php'); // Cambia la conexión a db.php
+
+if (!$pdo) {
+    die("Error de conexión a la base de datos");
+}
+// Consultar todos los productos más populares
+$query = "SELECT * FROM productos WHERE populares = true"; // Asumiendo que hay una columna 'popular'
+try {
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Error en la consulta: " . $e->getMessage());
+}
+
+// Manejar la solicitud POST para agregar al carrito
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = json_decode(file_get_contents('php://input'), true);
+    if ($data) {
+        $producto_id = $data['id'];
+        $cantidad = 1; // Puedes cambiar la cantidad si necesitas permitir cantidades diferentes
+
+        try {
+            // Verificar si el producto ya está en el carrito
+            $checkQuery = "SELECT * FROM carrito WHERE producto_id = :producto_id";
+            $checkStmt = $pdo->prepare($checkQuery);
+            $checkStmt->execute(['producto_id' => $producto_id]);
+
+            if ($checkStmt->rowCount() > 0) {
+                // Producto ya está en el carrito, actualizar cantidad
+                $updateQuery = "UPDATE carrito SET cantidad = cantidad + 1 WHERE producto_id = :producto_id";
+                $updateStmt = $pdo->prepare($updateQuery);
+                $updateStmt->execute(['producto_id' => $producto_id]);
+
+                echo json_encode(['success' => true, 'message' => 'Cantidad del producto actualizada en el carrito.']);
+            } else {
+                // Insertar el producto en la tabla carrito
+                $insertQuery = "INSERT INTO carrito (producto_id, cantidad) VALUES (:producto_id, :cantidad)";
+                $insertStmt = $pdo->prepare($insertQuery);
+                $insertStmt->execute(['producto_id' => $producto_id, 'cantidad' => $cantidad]);
+
+                echo json_encode(['success' => true, 'message' => 'Producto añadido al carrito.']);
+            }
+        } catch (PDOException $e) {
+            echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+        }
+        exit();
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lo mas populares</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Populares</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="../img/LogoTECGO_STORE.png">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="../Nav/stylee.css">
 </head>
 <body>
     <header>
-        <div include-html="../Nav/nav.php"></div>
+        <div id="nav-container"></div>
     </header>
-    <div id="nav-container"></div>
 
     <main>
-        <section class="offers fade-in-up">
-            <h2>Lo mas popular</h2>
-            <div class="offer-container">
-                <div class="offer">
-                    <img src="../img/Populares1.webp" alt="Laptop" />
-                    <div class="buttons">
-                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTablet" aria-expanded="false" aria-controls="collapseTablet">
-                            Detalles
-                        </button>
-                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
-                    </div>
-                    <div id="collapseTablet" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>NOT. DYNABOOK TECRA A40-K I7-1360P 16GB 1TB-SSD 14Inch IPS-HD W11-PRO Mystic Blue 3y</p>
-                            <p>Precio: $1235.61</p>
+        <section class="populares fade-in-up">
+            <h2>Los más populares</h2>
+            <div class="contenedor-populares">
+                <?php foreach ($productos as $row) { ?>
+                    <div class="producto">
+                        <img src="../img/<?php echo htmlspecialchars($row['imagen']); ?>" alt="<?php echo htmlspecialchars($row['nombre']); ?>" style="max-width: 100%; height: auto;" />
+                        <div class="botones">
+                            <button class="boton-detalles" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse<?php echo htmlspecialchars($row['id']); ?>" aria-expanded="false" aria-controls="collapse<?php echo htmlspecialchars($row['id']); ?>">
+                                Detalles
+                            </button>
+                            <button class="boton-carrito" data-id="<?php echo htmlspecialchars($row['id']); ?>" data-nombre="<?php echo htmlspecialchars($row['nombre']); ?>" data-precio="<?php echo htmlspecialchars($row['precio']); ?>" aria-label="Agregar al carrito">
+                                <img src="../img/carrito.png" alt="Icono de carrito" />
+                            </button>
+                        </div>
+                        <div id="collapse<?php echo htmlspecialchars($row['id']); ?>" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p><?php echo htmlspecialchars($row['descripcion']); ?></p>
+                                <p>Precio: $<?php echo htmlspecialchars($row['precio']); ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="offer">
-                    <img src="../img/Populares2.webp" alt="Iphone15" />
-                    <div class="buttons">
-                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMonitor1" aria-expanded="false" aria-controls="collapseMonitor1">
-                            Detalles
-                        </button>
-                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
-                    </div>
-                    <div id="collapseMonitor1" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>IPHONE APPLE 15 Pro 256GB 6.1Inch 5G BT NFC USB-Type-C iOS-17 Titanio Blanco</p>
-                            <p>Precio: $1590.83</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="offer">
-                    <img src="../img/Populares3.webp" alt="Tablets" />
-                    <div class="buttons">
-                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWebcam" aria-expanded="false" aria-controls="collapseWebcam">
-                            Detalles
-                        </button>
-                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
-                    </div>
-                    <div id="collapseWebcam" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>TABLET HYUNDAI PLUS 10LB2 QC 4GB 64GB LTE WIFI 10.1Inch IPS 2-CAM. ANDROID 13 BLACk</p>
-                            <p>Precio: $111.17</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="offer">
-                    <img src="../img/Populares4.webp" alt="Monitor" />
-                    <div class="buttons">
-                        <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMonitor2" aria-expanded="false" aria-controls="collapseMonitor2">
-                            Detalles
-                        </button>
-                        <button class="cart-button" aria-label="Agregar al carrito"><img src="../img/carrito.png" alt="Icono de carrito" /></button>
-                    </div>
-                    <div id="collapseMonitor2" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>MONITOR LG 34Inch ULTRAWIDE LED IPS 5120X2160 5ms 60Hz 2HDMI DP Speakers Black-white</p>
-                            <p>Precio: $1686.67</p>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+
     <script src="../js/NAV.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar el menú de navegación
+            fetch('../Nav/nav.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-container').innerHTML = data;
+                });
+
+            // Agregar productos al carrito
+            document.querySelectorAll('.boton-carrito').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    
+                    fetch('populares.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: '¡Producto añadido!',
+                                text: data.message,
+                                confirmButtonText: 'Aceptar'
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'info',
+                                title: 'Producto en el carrito',
+                                text: data.message,
+                                confirmButtonText: 'Aceptar'
+                            });
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                });
+            });
+        });
+    </script>
 </body>
 </html>
