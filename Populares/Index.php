@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php foreach ($productos as $row) { ?>
                 <div class="offer">
                     <!-- Usa la imagen específica para cada producto -->
-                    <img src="../img/<?php echo htmlspecialchars($row['imagen']); ?>" alt="<?php echo htmlspecialchars($row['nombre']); ?>" style="max-width: 100%; height: auto;" />
+                    <img src="<?php echo htmlspecialchars($row['imagen']); ?>" alt="<?php echo htmlspecialchars($row['nombre']); ?>" style="max-width: 100%; height: auto;" />
                     <div class="buttons">
                         <button class="details-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo htmlspecialchars($row['id']); ?>" aria-expanded="false" aria-controls="collapse<?php echo htmlspecialchars($row['id']); ?>">
                             Detalles

@@ -20,7 +20,7 @@
         </header>
         <div class="menu-bar">
             <div class="menu">
-                <ul class="menu-links">
+            <ul class="menu-links">
                     <li><a href="#">Tipos de categoría</a></li>
                     <li class="nav-link"><a href="../Categoria/Audio&Sonido.php"><i class='bx bx-volume-full'></i><span>Audio & Sonido</span></a></li>
                     <li class="nav-link"><a href="../Categoria/AcceCab.php"><i class='bx bx-plug'></i><span>Accesorios & Cables</span></a></li>
@@ -38,43 +38,95 @@
             </div>
         </div>
     </nav>
-
     <section class="home">
-        <div class="text">Audio & Sonido</div>
+        <div class="text">Accesorios & Cables</div>
         <div class="categories">
-            <?php
-            include('../db.php'); // Cambia la conexión a db.php
-
-            if (!$pdo) {
-                die("Error de conexión a la base de datos");
-            }
-
-            // Consultar todos los productos
-            $query = "SELECT * FROM productos";
-            try {
-                $stmt = $pdo->prepare($query);
-                $stmt->execute();
-                $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                die("Error en la consulta: " . $e->getMessage());
-            }
-
-            foreach ($productos as $row) { 
-                $imagePath = "../images/Au" . htmlspecialchars($row['id']) . ".webp";
-                ?>
-                <div class="category">
-                    <img src="<?php echo $imagePath; ?>" alt="<?php echo htmlspecialchars($row['nombre']); ?>">
-                    <span><?php echo htmlspecialchars($row['nombre']); ?></span>
-                    <span class="price">$<?php echo htmlspecialchars($row['precio']); ?></span>
-                    <button class="add-to-cart" data-id="<?php echo htmlspecialchars($row['id']); ?>">
-                        <i class='bx bx-cart'></i> Añadir al carrito
-                    </button>
-                </div>
-            <?php } ?>
-            
+            <!-- Category 1 -->
+            <div class="category">
+                <img src="../img/Ac1.webp" alt="Accesorios & Cables">
+                <span>CABLE SERIAL DATA 0.38CMTS</span>
+                <span class="price">$5.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 2 -->
+            <div class="category">
+                <img src="../img/Ac2.webp" alt="Accesorios & Cables">
+                <span>CABLE ARGOM MONITOR VGA HD15(M)</span>
+                <span class="price">$9.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 3 -->
+            <div class="category">
+                <img src="../img/Ac3.webp" alt="Accesorios & Cables">
+                <span>CABLE HDMI 3.0METROS</span>
+                <span class="price">$7.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 4 -->
+            <div class="category">
+                <img src="../img/Ac4.webp" alt="Accesorios & Cables">
+                <span>CABLE DE PODER 5-15P</span>
+                <span class="price">$4.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 5 -->
+            <div class="category">
+                <img src="../img/Ac5.webp" alt="Accesorios & Cables">
+                <span>CABLE ARGOM CB-0021BK USB</span>
+                <span class="price">$6.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 6 -->
+            <div class="category">
+                <img src="../img/Ac6.webp" alt="Accesorios & Cables">
+                <span>CABLE ARGOM CB-0047BK TYPE-C</span>
+                <span class="price">$8.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 7 -->
+            <div class="category">
+                <img src="../img/Ac7.webp" alt="Accesorios & Cables">
+                <span>ADAPTADOR ARGOM DISPLAY PORT TO HDMI</span>
+                <span class="price">$11.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 8 -->
+            <div class="category">
+                <img src="../img/Ac8.webp" alt="Accesorios & Cables">
+                <span>CARGADOR GENIUS PD-20AC 20W</span>
+                <span class="price">$15.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 9 -->
+            <div class="category">
+                <img src="../img/Ac9.webp" alt="Accesorios & Cables">
+                <span>CAR CHARGER ARGOM FORCE C1 36W PD TYPE-C</span>
+                <span class="price">$19.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 10 -->
+            <div class="category">
+                <img src="../img/Ac10.webp" alt="Accesorios & Cables">
+                <span>ALMOHADILLA REPOSA-MUÑECAS ARGOM</span>
+                <span class="price">$3.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 11 -->
+            <div class="category">
+                <img src="../img/Ac11.webp" alt="Accesorios & Cables">
+                <span>COOLING PAD ARGOM CF-1594 AJUSTABLE NEGRO</span>
+                <span class="price">$12.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
+            <!-- Category 12 -->
+            <div class="category">
+                <img src="../img/Ac12.webp" alt="Accesorios & Cables">
+                <span>MOUSE PAD HP 300 PAVILLON GAMING BLACK</span>
+                <span class="price">$7.99</span>
+                <button class="add-to-cart"><i class='bx bx-cart'></i> Añadir al carrito</button>
+            </div>
         </div>
     </section>
-
     <script src="../Categoria/Script.js"></script>
     <script src="../js/NAV.js"></script>
 </body>
