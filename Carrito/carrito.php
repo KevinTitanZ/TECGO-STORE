@@ -67,7 +67,7 @@ try {
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../Nav/stylee.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="icon" type="image/png" href="../img/LogoTECGO_STORE.png">
 </head>
 <body>

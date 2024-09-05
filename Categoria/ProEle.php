@@ -20,21 +20,20 @@
         </header>
         <div class="menu-bar">
             <div class="menu">
-                <ul class="menu-links">
+            <ul class="menu-links">
                     <li><a href="#">Tipos de categoría</a></li>
-                    <li class="nav-link"><a href="../Categoria/Audio&Sonido.html"><i class='bx bx-volume-full'></i><span>Audio & Sonido</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/AcceCab.html"><i class='bx bx-plug'></i><span>Accesorios & Cables</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/Computadoras.html"><i class='bx bx-laptop'></i><span>Computadoras</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/Componentes.html"><i class='bx bx-cog'></i><span>Componentes</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/Monitores.html"><i class='bx bx-desktop'></i><span>Monitores</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/Perifericos.html"><i class='bx bx-mouse'></i><span>Periféricos</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/ProEle.html"><i class='bx bx-shield'></i><span>Protección Electrónica</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/Redes.html"><i class='bx bx-network-chart'></i><span>Redes</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/Servidores.html"><i class='bx bx-server'></i><span>Servidores</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/Software.html"><i class='bx bx-package'></i><span>Software</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/Celulares.html"><i class='bx bx-mobile'></i><span>Celulares & Tablets</span></a></li>
-                    <li class="nav-link"><a href="../Categoria/Tv.html"><i class='bx bx-tv'></i><span>TV & Proyectores</span></a></li>
-                    <a href="../Categoria/Index.html"><button class="back-button" onclick="goBack()">Regresar</button></a>
+                    <li class="nav-link"><a href="../Categoria/Audio&Sonido.php"><i class='bx bx-volume-full'></i><span>Audio & Sonido</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/AcceCab.php"><i class='bx bx-plug'></i><span>Accesorios & Cables</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Computadoras.php"><i class='bx bx-laptop'></i><span>Computadoras</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Componentes.php"><i class='bx bx-cog'></i><span>Componentes</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Monitores.php"><i class='bx bx-desktop'></i><span>Monitores</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Perifericos.php"><i class='bx bx-mouse'></i><span>Periféricos</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/ProEle.php"><i class='bx bx-shield'></i><span>Protección Electrónica</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Redes.php"><i class='bx bx-network-chart'></i><span>Redes</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Servidores.php"><i class='bx bx-server'></i><span>Servidores</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Software.php"><i class='bx bx-package'></i><span>Software</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Celulares.php"><i class='bx bx-mobile'></i><span>Celulares & Tablets</span></a></li>
+                    <li class="nav-link"><a href="../Categoria/Tv.php"><i class='bx bx-tv'></i><span>TV & Proyectores</span></a></li>
                 </ul>
             </div>
         </div>
