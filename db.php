@@ -12,7 +12,7 @@ error_reporting(E_ALL);
 
 
 $host = 'localhost';
-$port = '5433'; // Cambia esto al puerto que estés usando, si es diferente
+$port = '5433'; 
 $dbname = 'APLICACIONES_WEB';
 $user = 'postgres';
 $password = 'kevin';
