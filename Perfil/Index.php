@@ -69,9 +69,7 @@ try {
             <h1>Mi Cuenta</h1>
         </section>
         <div class="profile">
-            <div class="profile-img">
-                <img src="../img/Perfil.jpg" alt="Foto de perfil">
-            </div>
+        
             <div class="icons">
     <div class="icon" data-tooltip="<?php echo htmlspecialchars($user['nombre']); ?>">
         <i class='bx bx-user'></i>

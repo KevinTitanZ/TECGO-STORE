@@ -15,12 +15,12 @@ try {
     die("Error en la consulta: " . $e->getMessage());
 }
 
-// Manejar la solicitud POST para agregar al carrito
+// Manejar la solicitud POST para agregar al carrito o realizar la compra
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
     if ($data) {
         $producto_id = $data['id'];
-        $cantidad = 1; // Puedes cambiar la cantidad si necesitas permitir cantidades diferentes
+        $cantidad = 1;
 
         try {
             // Verificar si el producto ya está en el carrito
@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $checkStmt->execute(['producto_id' => $producto_id]);
 
             if ($checkStmt->rowCount() > 0) {
-                // Producto ya está en el carrito
                 echo json_encode(['success' => false, 'message' => 'El producto ya está en el carrito.']);
             } else {
                 // Insertar el producto en la tabla carrito
@@ -44,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         exit();
     }
+
 }
 ?>
 
@@ -62,12 +62,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         .oferta {
             margin-bottom: 20px;
+            text-align: center;
         }
         .botones {
             margin-top: 10px;
         }
         .accordion-collapse {
             margin-top: 10px;
+        }
+        .contenedor-ofertas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
     </style>
 </head>
@@ -79,27 +85,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
         <section class="ofertas fade-in-up">
             <h2>Ofertas del día</h2>
-            <div class="contenedor-ofertas">
-                <?php foreach ($productos as $row) { ?>
-                    <div class="oferta">
-                        <img src="../img/<?php echo htmlspecialchars($row['imagen']); ?>" alt="<?php echo htmlspecialchars($row['nombre']); ?>" style="max-width: 100%; height: auto;" />
-                        <div class="botones">
-                            <button class="boton-detalles" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse<?php echo htmlspecialchars($row['id']); ?>" aria-expanded="false" aria-controls="collapse<?php echo htmlspecialchars($row['id']); ?>">
-                                Detalles
-                            </button>
-                            <button class="boton-carrito" data-id="<?php echo htmlspecialchars($row['id']); ?>" data-nombre="<?php echo htmlspecialchars($row['nombre']); ?>" data-precio="<?php echo htmlspecialchars($row['precio']); ?>" aria-label="Agregar al carrito">
-                                <img src="../img/carrito.png" alt="Icono de carrito" />
-                            </button>
-                        </div>
-                        <div id="collapse<?php echo htmlspecialchars($row['id']); ?>" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <p><?php echo htmlspecialchars($row['descripcion']); ?></p>
-                                <p>Precio: $<?php echo htmlspecialchars($row['precio']); ?></p>
+            <div class="container">
+                <div class="row">
+                    <?php foreach ($productos as $row) { ?>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="oferta">
+                                <img src="<?php echo htmlspecialchars($row['imagen']); ?>" alt="<?php echo htmlspecialchars($row['nombre']); ?>" style="max-width: 100%; height: auto;" />
+                                <div class="botones">
+                                    <button class="boton-detalles" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse<?php echo htmlspecialchars($row['id']); ?>" aria-expanded="false" aria-controls="collapse<?php echo htmlspecialchars($row['id']); ?>">
+                                        Detalles
+                                    </button>
+                                    <button class="boton-carrito" data-id="<?php echo htmlspecialchars($row['id']); ?>" data-nombre="<?php echo htmlspecialchars($row['nombre']); ?>" data-precio="<?php echo htmlspecialchars($row['precio']); ?>" aria-label="Agregar al carrito">
+                                        <img src="../img/carrito.png" alt="Icono de carrito" />
+                                    </button>
+                                </div>
+                                <div id="collapse<?php echo htmlspecialchars($row['id']); ?>" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <p><?php echo htmlspecialchars($row['descripcion']); ?></p>
+                                        <p>Precio: $<?php echo htmlspecialchars($row['precio']); ?></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php } ?>
+                    <?php } ?>
+                </div>
             </div>
         </section>
     </main>
@@ -120,37 +130,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Agregar productos al carrito
             document.querySelectorAll('.boton-carrito').forEach(button => {
-                button.addEventListener('click', function() {
-                    const id = this.getAttribute('data-id');
-                    
-                    fetch('ofertas.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ id })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: '¡Producto añadido!',
-                                text: data.message,
-                                confirmButtonText: 'Aceptar'
-                            });
-                        } else {
-                            Swal.fire({
-                                icon: 'info',
-                                title: 'Producto en el carrito',
-                                text: data.message,
-                                confirmButtonText: 'Aceptar'
-                            });
-                        }
-                    })
-                    .catch(error => console.error('Error:', error));
+    button.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');
+        
+        fetch('ofertas.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Producto añadido!',
+                    text: data.message,
+                    confirmButtonText: 'Aceptar'
                 });
-            });
+            } else {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Producto en el carrito',
+                    text: data.message,
+                    confirmButtonText: 'Aceptar'
+                });
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+});
         });
     </script>
 </body>
